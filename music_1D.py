@@ -61,7 +61,7 @@ for itheta in range(laz):
     th = az_search[itheta]
     psi_search = twpi*space*np.cos(th*derad)/lam
     a_psisearch = np.exp(-1j*np.matrix(range(number_ant)).T*psi_search)
-    SP[itheta,:] = abs(1/(np.conjugate(a_psisearch.T)*(En*np.conjugate(En.T))*a_psisearch))
+    SP[itheta,:] = abs((np.conjugate(a_psisearch.T)*a_psisearch)/(np.conjugate(a_psisearch.T)*(En*np.conjugate(En.T))*a_psisearch))
 
 # 正規化＆dB表現
 SPmax = np.max(np.max(SP))
